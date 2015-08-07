@@ -19,7 +19,6 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.20",
     "core-js": "npm:core-js@0.9.18",
     "three.js": "github:mrdoob/three.js@master",
-    "three.js/loaders/STLLoader": "github:mrdoob/three.js@master/examples/js/loaders/STLLoader.js",
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.1"
     },
