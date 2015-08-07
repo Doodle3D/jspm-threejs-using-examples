@@ -35,21 +35,18 @@ System.config({
 });
 
 System.config({
+  "packages": {
+    "three.js": {
+      "map": {
+        "./loaders/STLLoader": "./examples/js/loaders/STLLoader.js"
+      }
+    }
+  },
   "meta": {
     "three.js/loaders/STLLoader": {
       "deps": [
         "three.js"
-      ],
-    }
-  }
-});
-
-System.config({
-  packages: {
-    'three.js': {
-      map: {
-         './loaders/STLLoader': './examples/js/loaders/STLLoader.js'
-      }
+      ]
     }
   }
 });
