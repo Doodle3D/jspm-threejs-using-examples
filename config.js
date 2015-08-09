@@ -1,20 +1,39 @@
 System.config({
-  "baseURL": "/",
-  "defaultJSExtensions": true,
-  "transpiler": "babel",
-  "babelOptions": {
+  baseURL: "/",
+  defaultJSExtensions: true,
+  transpiler: "babel",
+  babelOptions: {
     "optional": [
       "runtime"
     ]
   },
-  "paths": {
+  paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
-  }
-});
+  },
 
-System.config({
-  "map": {
+  packages: {
+    "three.js": {
+      "map": {
+        "./loaders/STLLoader": "./examples/js/loaders/STLLoader.js"
+      }
+    }
+  },
+
+  meta: {
+    "three.js/loaders/STLLoader": {
+      "deps": [
+        "three.js"
+      ],
+      "globals": {
+        "THREE": "three.js"
+      },
+      "exports": "THREE.STLLoader",
+      "format": "global"
+    }
+  },
+
+  map: {
     "babel": "npm:babel-core@5.8.20",
     "babel-runtime": "npm:babel-runtime@5.8.20",
     "core-js": "npm:core-js@0.9.18",
@@ -27,25 +46,7 @@ System.config({
     },
     "npm:core-js@0.9.18": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
-    }
-  }
-});
-
-System.config({
-  "packages": {
-    "three.js": {
-      "map": {
-        "./loaders/STLLoader": "./examples/js/loaders/STLLoader.js"
-      }
-    }
-  },
-  "meta": {
-    "three.js/loaders/STLLoader": {
-      "deps": [
-        "three.js"
-      ]
+      "process": "github:jspm/nodelibs-process@0.1.1"
     }
   }
 });
