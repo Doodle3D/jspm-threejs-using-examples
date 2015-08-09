@@ -6,6 +6,36 @@
     <script src="jspm_packages/system.js" charset="utf-8"></script>
     <script src="config.js" charset="utf-8"></script>
     <script type="text/javascript">
+      "use strict"
+      var systemInstantiate = System.instantiate;
+      System.instantiate = function(load) {
+        var instantiateResult;
+        return systemInstantiate.call(this, load)
+          .then(function(result) {
+            instantiateResult = result;
+            return Promise.all(result.deps.map(function(dep) {
+              return System.normalize(dep, load.name).then(function(normalizedDep) {
+                return {dep: dep, normalizedDep: normalizedDep}
+              });
+            }));
+          })
+          .then(function(normalizedDeps) {
+            console.groupCollapsed('instantiating: ',load.name);
+            for(let metaKey in load.metadata) {
+              if(metaKey == 'deps') continue;
+              console.log(metaKey+': ', load.metadata[metaKey])
+            }
+            console.groupCollapsed('  deps : ',normalizedDeps.length);
+            for(let depData of normalizedDeps) {
+              console.log(' ',depData.dep);
+              console.log('  > ',depData.normalizedDep);
+            }
+            console.groupEnd();
+            console.groupEnd();
+            return instantiateResult;
+          });
+      };
+
       System.import('app.js');
     </script>
   </head>
