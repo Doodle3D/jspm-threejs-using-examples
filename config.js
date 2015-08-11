@@ -53,6 +53,16 @@ System.config({
           },
           "exports": "THREE.STLLoader",
           "format": "global"
+        },
+        "loaders/STLLoader": {
+          "deps": [
+            "three"
+          ],
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.STLLoader",
+          "format": "global"
         }
       }
     }
