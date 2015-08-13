@@ -4,5 +4,6 @@
 // import 'three.js';
 // console.log('THREE: ', THREE);
 
-import 'three/loaders/STLLoader';
+import stlLoader from 'three/loaders/STLLoader';
+console.log('stlLoader: ', stlLoader);
 // console.log('THREE.STLLoader: ', THREE.STLLoader);

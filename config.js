@@ -34,36 +34,13 @@ System.config({
         "./loaders/STLLoader": "./examples/js/loaders/STLLoader.js"
       },
       meta: {
-        "./loaders/STLLoader": {
-          "deps": [
-            "three"
-          ],
+        "examples/js/loaders/STLLoader.js": {
           "globals": {
             "THREE": "three"
           },
           "exports": "THREE.STLLoader",
           "format": "global"
         },
-        "three/loaders/STLLoader": {
-          "deps": [
-            "three"
-          ],
-          "globals": {
-            "THREE": "three"
-          },
-          "exports": "THREE.STLLoader",
-          "format": "global"
-        },
-        "loaders/STLLoader": {
-          "deps": [
-            "three"
-          ],
-          "globals": {
-            "THREE": "three"
-          },
-          "exports": "THREE.STLLoader",
-          "format": "global"
-        }
       }
     }
   },
